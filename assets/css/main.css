@@ -1,0 +1,15 @@
+body {
+    @apply bg-gray-50;
+}
+
+.v-toast__text {
+    @apply font-inter rounded-lg;
+}
+
+.v-toast__item {
+    @apply rounded-lg !important;
+}
+
+.v-toast__item--error {
+    @apply text-gray-800 shadow-lg border-l-8 border-red-500 bg-white !important;
+}
