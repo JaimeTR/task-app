@@ -2,7 +2,7 @@
   <transition name="modal">
     <div
       v-if="active"
-      class="fixed top-0 left-0 h-screen w-full z-50 transition-all duration-100 bg-gray-400 bg-opacity-40">
+      class="fixed top-0 left-0 h-screen w-full z-50 transition-all duration-300 bg-gray-400 bg-opacity-40">
       <div class="h-full flex w-full items-center justify-center">
           <div class="bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-100" :style="`min-width: ${minWidth}`">
             <div class="p-4 content">

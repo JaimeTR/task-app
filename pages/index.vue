@@ -20,8 +20,13 @@
     <!-- Modal -->
     <Modal min-width="30rem" :active="modals.createModal" @close="modals.createModal = false">
       <template #content>
-          <form>
-            <Input placeholder="Enter the colection name" block />
+          <form class="flex flex-col gap-y-3">
+            <!-- Input Collection -->
+            <Input v-model="collectionFormData.name" v-validate="'required'"
+            placeholder="Enter the colection name" block label="Collection" name="collection-name"
+            data-vv-as="collection" :error="errors.first('collection-name')" />
+
+            <!-- Color picker -->
             <ColorSelect id="color-select" v-model="collectionFormData.color" v-validate="'required'"
             :error="errors.first('color-select')" name="color-select" data-vv-as="color" />
           </form>
@@ -70,15 +75,27 @@ export default {
     }
   },
   computed: {
+    /**
+     * In-store collection mapping 🎈
+     */
     ...mapState('collection', ['loader', 'collections'])
   },
   created() {
+    /**
+     * Getting all collections on page load
+     * @param {object} pagination - The desired pagination is sent to list the collections.
+     */
     this.getAllCollections(this.pagination)
   },
   methods: {
     ...mapActions('collection', ['getAllCollections']),
+    /**
+     * Save new collection ❤
+     */
     async saveCollection(){
       try {
+        /* Validation for filled fields */
+
         const { response } = await this.$CollectionService.saveCollection(this.collectionFormData);
         console.log(response);
       } catch (error) {
