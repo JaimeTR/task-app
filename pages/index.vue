@@ -21,6 +21,7 @@
     <Modal min-width="30rem" :active="modals.createModal" @close="modals.createModal = false">
       <template #content>
           <form>
+            <Input placeholder="Enter the colection name" block />
             <ColorSelect id="color-select" v-model="collectionFormData.color" v-validate="'required'"
             :error="errors.first('color-select')" name="color-select" data-vv-as="color" />
           </form>
@@ -43,13 +44,14 @@
 import Collection from '@/components/ui/Collection.vue'
 import Button from '@/components/ui/Button.vue'
 import Modal from '@/components/ui/Modal.vue'
+import Input from '@/components/ui/Input.vue'
 import ColorSelect from '@/components/ui/ColorSelect.vue'
 import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'Index',
   components: {
-    Collection, Button, Modal, ColorSelect
+    Collection, Button, Modal, ColorSelect, Input
   },
   layout: 'default',
   data() {

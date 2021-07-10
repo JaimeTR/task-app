@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'task-app',
+    title: 'Task app',
     htmlAttrs: {
       lang: 'en'
     },
